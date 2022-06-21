@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ConnectionDBFactory.cs" />
     <Compile Include="Controller\PedidoController.cs" />
     <Compile Include="Modelo\Caso.cs" />
     <Compile Include="Modelo\Pedido.cs" />

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using mvcSupermercado.Controller;
+using mvcSupermercado.Modelo;
 
 namespace mvcSupermercado
 {
@@ -11,12 +12,26 @@ namespace mvcSupermercado
     {
         static void Main(string[] args)
         {
-            string numeroPedido = "458747";
-            
-
             PedidoController controllerPedido = new PedidoController();
+            string numeroPedido = "458747";
 
-            var productos = controllerPedido.ObtenerProductosPorPeido(numeroPedido);
+            Pedido pedido = new Pedido();
+            pedido.CodigoPedido = "00005";
+            pedido.Fecha = DateTime.Now.ToString();
+            
+            bool flag = controllerPedido.AñadirPedido(pedido);
+            if(flag)
+            {
+                Console.WriteLine("pedido añadido correctamente");
+            }
+            else
+            {
+                Console.WriteLine("algo paso, no se inserto ");
+            }
+
+
+
+            var productos = controllerPedido.ObtenerPedidos(numeroPedido);
 
 
 

@@ -16,9 +16,20 @@ namespace mvcSupermercado.Controller
             pedidoDAO = new PedidoDAO();
         }
 
-        public List<Producto> ObtenerProductosPorPeido(string pedido)
+        /* public List<Producto> ObtenerProductosPorPeido(string pedido)
+         {
+            return pedidoDAO.ListarProductosPorPedido(pedido);
+         }*/
+
+        public List<Pedido> ObtenerPedidos(string pedido)
         {
-           return pedidoDAO.ListarProductosPorPedido(pedido);
+            return pedidoDAO.ListarProductosPorPedido(pedido);
         }
+
+        public bool AñadirPedido(Pedido pedido)
+        {
+            return pedidoDAO.AñadirPedido(pedido);
+        }
+
     }
 }
