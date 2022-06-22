@@ -20,6 +20,9 @@ namespace mvcSupermercado.Modelo
 
         public bool AñadirPedido(Pedido pedido)
         {
+            var update = $"UPDATE PEDIDO SET CODIGOPEDIDO = {pedido.CodigoPedido}, " +
+                $"fecha= {pedido.Fecha}";
+
             var query = "insert into Pedido(codigoPedido,fecha) values(@CodigoPedido, @Fecha)";
             var command = new SqlCommand(query, _connectionDb);
             command.Parameters.AddWithValue("@CodigoPedido", pedido.CodigoPedido);
